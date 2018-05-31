@@ -48,7 +48,7 @@ There are many marketplaces and websites which display the price of Ethereum. Al
 
 Considerations :
 
-a. I was looking to gather price information at the lowest possible time interval (minute by minute, or even lower, if possible)
+a. I was looking to gather price information at an hourly interval. 
 
 b. I wanted the price from when Ethereum began- July 30, 2015
 
@@ -56,7 +56,7 @@ c. I did not want to rely on a single marketplace but an aggregated data source.
 
 Solution: 
 
-[Coindesk!](www.coindesk.com) . It is possible to extract price on an hour by hour basis. It has data from when Ethereum began. It provides aggregated pricing information. Lastly, it is a pretty trusted source in the crypto community, having been active since May 2013. One consideration that I was not able to satisfy is data being available at a lower time interval. If anyone reading this happens to know of a data source that provides pricing information at a lower time interval, I'd love to know. 
+[Coindesk!](www.coindesk.com) . It is possible to extract price on an hour by hour basis. It has data from when Ethereum began. It provides aggregated pricing information. Lastly, it is a pretty trusted source in the crypto community, having been active since May 2013. 
 
 Process: 
 
@@ -157,6 +157,9 @@ Pricing data
 1. Convert the  data to a timestamp format . 
 2. Aggregate data on an hourly basis. If more than one record exists for a single time delta , consider the average price during that time delta. 
 
+Output : 
+![](https://github.com/saurabh-rao/EthereumDeepLearning/blob/master/images/4.JPG)
+
 
 Ethereum data 
 
@@ -164,13 +167,65 @@ Ethereum data
 2. Delete unnecessary columns. 
 3. Convert data columns from hexadecimal to human readable format. Convert date from unix timestamp to datetime format. 
 
-
-
-
-
+Output: 
+![](https://github.com/saurabh-rao/EthereumDeepLearning/blob/master/images/5.JPG)
 
 
 #### Feature extraction 
+
+Pricing data 
+
+1. Get the log return and the percentage change in value over time from the Ethereum price information. Log return is being predicted instead of price, because it reduces the variation of the time series making it easier to fit a model to it. 
+
+Ethereum transaction data 
+
+To extract the network features, all the transactions that are in a time delta are considered. For each transaction , the sender and receiver are considered as nodes, with an edge existing between them having a weight equal to the value of the transaction. 
+
+Process for network feature extraction : 
+1. Consider all the transactions happening in an hour. 
+2. Extract the transactions count as a feature. 
+3. Represent the transactions as a network graph , with the sender and receiver acting as nodes with an edge having a weight equal to the value of the Ether transferred. 
+4. Remove the transactions that do not have any edges in the graph. 
+5. Extract the following features from  the graph - edge count , node count , degree , transitivity , centrality , average clustering , number of connected components and density.  
+6. Apply a bincount  get the number of nodes which have 1 edge , 2 edges , 3 edges ... and append the counts as features. (Zeroes can be appended to ensure that we have an equal size of all arrays once we append these lists to the final dataset )
+7. Repeat 1 through 6 for every hour and concatenate all the values into a single dataset. 
+
+![](https://github.com/saurabh-rao/EthereumDeepLearning/blob/master/images/6.jpg)
+
+#### Baseline models 
+
+Consider Naive forecast , simple exponential smoothing and ARIMA to be the baseline models. All of the baseline models provide a flat forecast. The flat forecast gives an RMSE of 0.012 , but it would not be prudent to attach too much importance to this as a flat forecast does not lead to any meaningful predictions. 
+
+Naive forecast 
+![](https://github.com/saurabh-rao/EthereumDeepLearning/blob/master/images/naive.png)
+
+
+Simple exponential smoothing 
+![](https://github.com/saurabh-rao/EthereumDeepLearning/blob/master/images/ses.png)
+
+
+ARIMA 
+![](https://github.com/saurabh-rao/EthereumDeepLearning/blob/master/images/arima.png)
+
+#### Deep Learning using RNN LSTMs 
+
+What is an RNN 
+
+What is an LSTM 
+
+Structure of our model 
+
+Results 
+
+Future work 
+
+
+
+
+
+
+
+
 
 
 
