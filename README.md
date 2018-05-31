@@ -27,9 +27,9 @@ A blockchain is defined as a cryptographically secure transactional singleton ma
 Ethereum implements a version of this paradigm. 
 
 Any blockchain has two parts - a  header and  transactions . The transactions store information pertaining to each transfer of currency (to, from, value , timestamp etc) and the  header stores metadata for the transactions  (timestamp, miner information etc). The header and the transactions are contained in a "block". The blocks are chained in a sequential order, with each new block being chained to its previou block. This image by [Louis Pinsard](https://blog.theodo.fr/2018/01/deploy-first-ethereum-smart-contract-blockchain/) explains the concept beautifully. 
-![](http://blog.theodo.fr/wp-content/uploads/2018/01/sketch_blockchain.png). 
+![](https://github.com/saurabh-rao/EthereumDeepLearning/blob/master/images/2.PNG). 
 
-If you are looking to understand how the Ethereum blockchain works in detail , I recommend this article by [Preethi Kasireddy](https://medium.com/preethikasireddy/how-does-ethereum-work-anyway-22d1df506369). On the other hand , if you are more of a visual person , this image by Lee Thomas is pretty neat.  ![](https://i.stack.imgur.com/afWDt.jpg) 
+If you are looking to understand how the Ethereum blockchain works in detail , I recommend this article by [Preethi Kasireddy](https://medium.com/preethikasireddy/how-does-ethereum-work-anyway-22d1df506369). On the other hand , if you are more of a visual person , this image by Lee Thomas is pretty neat.  ![](https://github.com/saurabh-rao/EthereumDeepLearning/blob/master/images/3.JPG) 
 <i>[high res version](https://i.stack.imgur.com/afWDt.jpg)</i>
 
 3. What am I looking to answer ? 
