@@ -1,6 +1,5 @@
 # EthereumDeepLearning
 
-Project name 
 
 Description 
 
@@ -15,11 +14,11 @@ Credits
 License 
 
 
-####What is Ethereum ? 
+#### What is Ethereum ? 
 
 Ethereum describes itself as : <i>A decentralized platform that runs smart contracts: applications that run exactly as programmed without any possibility of downtime, censorship, fraud or third-party interference.</i> This platform runs on a custom built blockchain, an infrastructure that allows value transfer and an accurate representation of value ownership. [Source](https://www.ethereum.org/)
 
-####What is the Ethereum blockchain ? 
+#### What is the Ethereum blockchain ? 
 
 A blockchain is defined as a cryptographically secure transactional singleton machine with shared-state [(source)](https://github.com/ethereum/yellowpaper). Let us try and understand the three terms mentioned here: 
 <b> Cryptographically secure: </b> The creation of digital currency (like Ether) is secured by an algorithm that is hard to break (not impossible, just that it would take a lot of computation power to break it). 
@@ -39,7 +38,7 @@ If you are looking to understand how the Ethereum blockchain works in detail , I
 Can the log returns for Ethereum be predicted by using the network subgraph characterestics of the Ethereum transaction graph 
 
 
-####Data collection 
+#### Data collection 
 
 I will split this into two major sections - Gathering data which relates to the Ethereum transactions and gathering data which relates to the price of Ethereum. My philosophy for gathering data has always been that of a hoarder - gather everything you can at the fastest possible rate, then use whatever you need from it. Storage is cheap these days, and I get a kick out of figuring out how to get around rate limits :).
 
@@ -146,8 +145,33 @@ The process :
 1. Query header information for the specific block number and store that information in a dataframe. 
 2. Get the transactions contained in the specific block and save all features to another dataframe. 
 3. After every <i>n</i> number of blocks decided by how huge you want each dataframe to be, output the dataframes as CSV files. 
-Outputting each block's information as a CSV file is time intensive. Repeated writing of data to a hard drive / solid state drive can be slow. 
+Outputting each block's information as a CSV file is time intensive. Repeated writing of data to a hard drive / solid state drive can be slow. During this stage , you also might want to consider deleting a few runtime variables to speed up processing time. 
 4. Repeat steps 1-3 , starting from block # 0 and continue until the current block. You might want to consider running multiple instances of the same script with different block number start and end values for downloading the data in parallel.
+
+
+#### Data processing 
+As anyone who has ever dealt with real world data will know, data is ugly and needs to be properly formatted before any kind of algorithm can be run on it. I relied heavily on Pandas for this stage of the project. 
+
+Pricing data 
+
+1. Convert the  data to a timestamp format . 
+2. Aggregate data on an hourly basis. If more than one record exists for a single time delta , consider the average price during that time delta. 
+
+
+Ethereum data 
+
+1. Join header and transaction data files by header information's primary key. 
+2. Delete unnecessary columns. 
+3. Convert data columns from hexadecimal to human readable format. Convert date from unix timestamp to datetime format. 
+
+
+
+
+
+
+
+#### Feature extraction 
+
 
 
 
