@@ -53,7 +53,7 @@ Solution:
 
 Process: 
 Coindesk allows you to search for the price of Ethereum on a day by day basis and download a CSV file of the data ( which is in an hour by hour format. From late 2017 , the results do break down into lower time intervals, but to ensure consistency, I stuck to the one hour time interval).
-![](1.jpg)
+![](https://github.com/saurabh-rao/EthereumDeepLearning/blob/master/images/1.JPG)
 I wanted to automate the process of querying the information I need for each day. I chose to work with two python libraries - selenium and pyautogui. The intention was to mimic the workflow that a human would follow and replicate the process for every day. 
  Steps : 
  1. Open the webpage using selenium
