@@ -239,10 +239,3 @@ Future work
 1. Implement an RNN LSTM model with a lower time delta ( it is possible to get Ethereum pricing information for a 5 minute time interval ). 
 2. Implement custom loss functions 
 3. Use "network motifs", i.e., instead of simply sticking to node and edge features , try to enumerate different types of specific subgraphs, as mentioned [here](http://www.cs.unibo.it/babaoglu/courses/cas06-07/resources/tutorials/motifs.pdf) , [here](https://dl.acm.org/citation.cfm?id=2920564) and [here](https://europepmc.org/abstract/med/27734973)
-
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master

@@ -1,0 +1,30 @@
+library(forecast)
+library(glmnet)
+library(tidyverse)
+setwd("/Users/vsokolov/Dropbox/proj/dl-graph/code/model")
+d = read.csv("3.csv")
+head(d)
+
+
+mu = mean(d$log_ret_y)
+yts = ts(data = d$log_ret_y,start = 1,frequency = 1)
+tsm = auto.arima(y = yts, xreg =  d[,1:5] %>% as.matrix())
+summary(tsm)
+
+lmod = lm(log_ret_y~., data=d)
+summary(lmod)
+plot(lmod)
+cvfit = cv.glmnet(x = d[,1:5] %>% as.matrix(), y = d[,6])
+plot(cvfit)
+glmpred = predict(cvfit, newx = d[,1:5] %>% as.matrix(), s = "lambda.min")
+
+sqrt(mean((mu - d$log_ret_y)^2))
+sqrt(mean((tsm$fitted - yts)^2))
+sqrt(mean((glmpred - d$log_ret_y)^2))
+sqrt(mean((lmod$fitted.values - d$log_ret_y)^2))
+
+plot(d$log_ret_y, type='l')
+abline(h=mu, col=2, lwd=2)
+lines(tsm$fitted %>% as.numeric(), col=3)
+lines(glmpred %>% as.numeric(), col=4)
+lines(lmod$fitted.values %>% as.numeric(), col=4)
