@@ -1,5 +1,8 @@
 # EthereumDeepLearning
 
+I would like to thank [Prof. Vadim Sokolov](http://vsokolov.org/) for mentoring me through various stages of this project. I would like to thank [Cuneyt Gurcan Akcora](https://www.linkedin.com/in/cuneyt-gurcan-akcora-97272421) and [Yulia R. Gel](https://www.utdallas.edu/math/809/yulia-gel/) for helping me gain a baseline understanding of the problem. 
+
+
 ### What is Ethereum ? 
 
 Ethereum describes itself as : <i>A decentralized platform that runs smart contracts: applications that run exactly as programmed without any possibility of downtime, censorship, fraud or third-party interference.</i> This platform runs on a custom built blockchain, an infrastructure that allows value transfer and an accurate representation of value ownership. [Source](https://www.ethereum.org/)
@@ -45,18 +48,14 @@ c. I did not want to rely on a single marketplace but an aggregated data source.
 
 Solution: 
 
-[Coindesk!](www.coindesk.com) . It is possible to extract price on an hour by hour basis. It has data from when Ethereum began. It provides aggregated pricing information. Lastly, it is a pretty trusted source in the crypto community, having been active since May 2013. 
-
-Process: 
-
-Coindesk allows you to search for the price of Ethereum on a day by day basis and download a CSV file of the data ( which is in an hour by hour format. From late 2017 , the results do break down into lower time intervals, but to ensure consistency, I stuck to the one hour time interval).
+[Coindesk!](www.coindesk.com) . It is possible to extract price on an hour by hour basis. It has data from when Ethereum began. It provides aggregated pricing information. Lastly, it is a pretty trusted source in the crypto community, having been active since May 2013. Coindesk allows you to search for the price of Ethereum on a day by day basis and download a CSV file of the data ( which is in an hour by hour format. From late 2017 , the results do break down into lower time intervals, but to ensure consistency, I stuck to the one hour time interval).
 ![](https://github.com/saurabh-rao/EthereumDeepLearning/blob/master/images/1.JPG)
 
 I wanted to automate the process of querying the information I need for each day. I chose to work with two python libraries - selenium and pyautogui. The intention was to mimic the workflow that a human would follow and replicate the process for every day. 
 
-Steps : 
+Process : 
 
-1. Open the webpage using selenium
+1. Open the webpage using Selenium
 
 2. Type the start date and end date as done by a human. 
 
@@ -64,7 +63,7 @@ Steps :
 
 4. Repeat the process for all dates.
 
-(Note : for devices with different screen settings , might want to consider changing the (x,y) coordinates to ensure the same process occurs) . 
+(Note : for devices with different screen settings , might want to consider changing the coordinates to ensure the same process occurs). 
 
 
 After all the CSV files are gathered , the idea is to delete the header line in each CSV file and concatenate all of the information into a single file. This can be accomplished by a few simple commands in the windows command prompt (Mac and linux have similar options as well). 
@@ -125,11 +124,11 @@ This should return information about the current block and the highest block , w
 If it returns a False , you either are in sync or have not found a peer to start syncing with. 
 
 
-Using the web3.JS API 
+Using the web3.JS API : 
 
 I have used an [R implementation](https://github.com/BSDStudios/ethr) of the JSON-RPC API to query information I need. 
-The process : 
 
+Process : 
 
 1. Query header information for the specific block number and store that information in a dataframe. 
 2. Get the transactions contained in the specific block and save all features to another dataframe. 
@@ -142,37 +141,40 @@ ___
 ### Data processing 
 As anyone who has ever dealt with real world data will know, data is ugly and needs to be properly formatted before any kind of algorithm can be run on it. I relied heavily on Pandas for this stage of the project. 
 
-Pricing data 
+Pricing data :
 
 1. Convert the  data to a timestamp format . 
 2. Aggregate data on an hourly basis. If more than one record exists for a single time delta , consider the average price during that time delta. 
 
 Output : 
+
 ![](https://github.com/saurabh-rao/EthereumDeepLearning/blob/master/images/4.JPG)
 
 
-Ethereum data 
+Ethereum data :
 
 1. Join header and transaction data files by header information's primary key. 
 2. Delete unnecessary columns. 
 3. Convert data columns from hexadecimal to human readable format. Convert date from unix timestamp to datetime format. 
 
 Output: 
+
 ![](https://github.com/saurabh-rao/EthereumDeepLearning/blob/master/images/5.JPG)
 
 ___
 
 ### Feature extraction 
 
-Pricing data 
+Pricing data :
 
 1. Get the log return and the percentage change in value over time from the Ethereum price information. Log return is being predicted instead of price, because it reduces the variation of the time series making it easier to fit a model to it. 
 
-Ethereum transaction data 
+Ethereum data : 
 
 To extract the network features, all the transactions that are in a time delta are considered. For each transaction , the sender and receiver are considered as nodes, with an edge existing between them having a weight equal to the value of the transaction. 
 
-Process for network feature extraction : 
+Process : 
+
 1. Consider all the transactions happening in an hour. 
 2. Extract the transactions count as a feature. 
 3. Represent the transactions as a network graph , with the sender and receiver acting as nodes with an edge having a weight equal to the value of the Ether transferred. 
@@ -189,14 +191,17 @@ ___
 Consider Naive forecast , simple exponential smoothing and ARIMA to be the baseline models. All of the baseline models provide a flat forecast. The flat forecast gives an RMSE of 0.012 , but it would not be prudent to attach too much importance to this as a flat forecast does not lead to any meaningful predictions. 
 
 Naive forecast 
+
 ![](https://github.com/saurabh-rao/EthereumDeepLearning/blob/master/images/naive.png)
 
 
 Simple exponential smoothing 
+
 ![](https://github.com/saurabh-rao/EthereumDeepLearning/blob/master/images/ses.png)
 
 
 ARIMA 
+
 ![](https://github.com/saurabh-rao/EthereumDeepLearning/blob/master/images/arima.png)
 ___
 
@@ -226,37 +231,15 @@ ___
 ### Results 
 
 RNN LSTMs provide a forecast that is meaningful and not just a flat forecast. GRU cells have a better convergence rate when compared to plain LSTM cells. 
+
 ___
 
 Future work 
 
+1. Implement an RNN LSTM model with a lower time delta ( it is possible to get Ethereum pricing information for a 5 minute time interval ). 
+2. Implement custom loss functions 
+3. Use "network motifs", i.e., instead of simply sticking to node and edge features , try to enumerate different types of specific subgraphs, as mentioned [here](http://www.cs.unibo.it/babaoglu/courses/cas06-07/resources/tutorials/motifs.pdf) , [here](https://dl.acm.org/citation.cfm?id=2920564) and [here](https://europepmc.org/abstract/med/27734973)
 
 
 
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-Additional links 
-
-How hard is it to break the EDCSA algorithm used by Ethereum [Source](https://pdfs.semanticscholar.org/5646/d266fcd0472bd188b913f9a7a420d82e8859.pdf)
-How hard is it to break the SHA-256 algorithm used by Bitcoin [Source](https://eprint.iacr.org/2016/992)
-Implementing a simple blockchain in Python [Source](https://github.com/satwikkansal/ibm_blockchain)
-
-
-
-
-I would like to thank the following people who have helped me immensely with my work : 1. Vsokolov 
-2. Dallas
 
