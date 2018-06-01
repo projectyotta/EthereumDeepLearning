@@ -242,3 +242,7 @@ Future work
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
