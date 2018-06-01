@@ -1,24 +1,11 @@
 # EthereumDeepLearning
 
-
-Description 
-
-Table of contents 
-
-Installation 
-
-USage 
-
-Credits 
-
-License 
-
-
-#### What is Ethereum ? 
+### What is Ethereum ? 
 
 Ethereum describes itself as : <i>A decentralized platform that runs smart contracts: applications that run exactly as programmed without any possibility of downtime, censorship, fraud or third-party interference.</i> This platform runs on a custom built blockchain, an infrastructure that allows value transfer and an accurate representation of value ownership. [Source](https://www.ethereum.org/)
+___
 
-#### What is the Ethereum blockchain ? 
+### What is the Ethereum blockchain ? 
 
 A blockchain is defined as a cryptographically secure transactional singleton machine with shared-state [(source)](https://github.com/ethereum/yellowpaper). Let us try and understand the three terms mentioned here: 
 <b> Cryptographically secure: </b> The creation of digital currency (like Ether) is secured by an algorithm that is hard to break (not impossible, just that it would take a lot of computation power to break it). 
@@ -32,13 +19,15 @@ Any blockchain has two parts - a  header and  transactions . The transactions st
 
 If you are looking to understand how the Ethereum blockchain works in detail , I recommend this article by [Preethi Kasireddy](https://medium.com/preethikasireddy/how-does-ethereum-work-anyway-22d1df506369). On the other hand , if you are more of a visual person , this image by Lee Thomas is pretty neat.  ![](https://github.com/saurabh-rao/EthereumDeepLearning/blob/master/images/3.jpg) 
 <i>[high res version](https://i.stack.imgur.com/afWDt.jpg)</i>
+___
 
-####What am I looking to answer ? 
+### What am I looking to answer ? 
 
 Can the log returns for Ethereum be predicted by using the network subgraph characterestics of the Ethereum transaction graph 
 
+___
 
-#### Data collection 
+### Data collection 
 
 I will split this into two major sections - Gathering data which relates to the Ethereum transactions and gathering data which relates to the price of Ethereum. My philosophy for gathering data has always been that of a hoarder - gather everything you can at the fastest possible rate, then use whatever you need from it. Storage is cheap these days, and I get a kick out of figuring out how to get around rate limits :).
 
@@ -148,8 +137,9 @@ The process :
 Outputting each block's information as a CSV file is time intensive. Repeated writing of data to a hard drive / solid state drive can be slow. During this stage , you also might want to consider deleting a few runtime variables to speed up processing time. 
 4. Repeat steps 1-3 , starting from block # 0 and continue until the current block. You might want to consider running multiple instances of the same script with different block number start and end values for downloading the data in parallel.
 
+___
 
-#### Data processing 
+### Data processing 
 As anyone who has ever dealt with real world data will know, data is ugly and needs to be properly formatted before any kind of algorithm can be run on it. I relied heavily on Pandas for this stage of the project. 
 
 Pricing data 
@@ -170,8 +160,9 @@ Ethereum data
 Output: 
 ![](https://github.com/saurabh-rao/EthereumDeepLearning/blob/master/images/5.JPG)
 
+___
 
-#### Feature extraction 
+### Feature extraction 
 
 Pricing data 
 
@@ -191,8 +182,9 @@ Process for network feature extraction :
 7. Repeat 1 through 6 for every hour and concatenate all the values into a single dataset. 
 
 ![](https://github.com/saurabh-rao/EthereumDeepLearning/blob/master/images/6.jpg)
+___
 
-#### Baseline models 
+### Baseline models 
 
 Consider Naive forecast , simple exponential smoothing and ARIMA to be the baseline models. All of the baseline models provide a flat forecast. The flat forecast gives an RMSE of 0.012 , but it would not be prudent to attach too much importance to this as a flat forecast does not lead to any meaningful predictions. 
 
@@ -206,18 +198,38 @@ Simple exponential smoothing
 
 ARIMA 
 ![](https://github.com/saurabh-rao/EthereumDeepLearning/blob/master/images/arima.png)
+___
 
-#### Deep Learning using RNN LSTMs 
+### Deep Learning using RNN LSTMs 
 
-What is an RNN 
+Recurrent neural networks have been used extensively for sequence learning tasks - language modelling , machine translation , image captioning etc. They are good at understanding the temporal aspects of the data, which is why they have also been used for price prediction problems. 
 
-What is an LSTM 
+The task is to predict the log return using a sequential RNN LSTM model. Keras is used as the backend. 
 
-Structure of our model 
+Process : 
+1. Load the dataset. 
+2. Fill null values (if any) with 0 and convert all columns to float32 datatype. 
+3. Scale the columns in the dataset. Experiment with sklearn's StandardScaler, MinMaxScaler,MaxAbsScaler and RobustScaler. The reason why multiple scaling methods are being tried is because some of the log returns are extremely large and therefore act as outliers. For this problem, ignoring the outliers does not make any sense, which is why we try to reduce the effect of their impact. 
+4. Specify the number of lag hours and convert the dataset to a supervised learning problem by adding previous timestamp information to each data entry. Experiment with the number of lag hours to see if there is a difference. 
+5. Split the dataset into train_X, train_y, test_X, test_y. 
+6. Initialize a sequential model with the first LSTM layer having a linear activation function. 
+7. Experiment with different dropout rates. Also experiment with different cells - GRU , peephole LSTMs etc. 
+8. Specify the output layer as a dense layer with 1 neuron and a linear activation function. 
+9. Experiment with different loss and optimizer functions and their parameters. 
+10. Compile the model. 
+11. Fit the model to training data. Experiment with different batch sizes, epoch counts and shuffle options. 
+12. Plot the training and test loss. 
+13. Make a prediction for the test set by inverse transforming the test values. Plot the actual vs predicted log returns. Calculate the RMSE as well. 
+14. Save the model. 
+___
 
-Results 
+### Results 
+
+RNN LSTMs provide a forecast that is meaningful and not just a flat forecast. GRU cells have a better convergence rate when compared to plain LSTM cells. 
+___
 
 Future work 
+
 
 
 
