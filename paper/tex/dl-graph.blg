@@ -1,0 +1,26 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: dl-graph.aux
+The style file: plain.bst
+Database file #1: references.bib
+I was expecting a `,' or a `}'---line 225 of file references.bib
+ : 
+ : @article{32,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--to sort, need author or key in 3
+Warning--to sort, need author or key in 27
+Warning--empty journal in 29
+Warning--empty year in 29
+Warning--empty journal in 41
+Warning--empty year in 41
+Warning--empty journal in 26
+Warning--empty year in 26
+Warning--empty journal in 16
+Warning--empty publisher in 2
+Warning--empty publisher in 11
+Warning--empty journal in 10
+Warning--empty journal in 24
+Warning--empty year in 24
+Warning--empty journal in 8
+Warning--empty journal in 9
+Warning--empty publisher in 6
+(There was 1 error message)

@@ -1,0 +1,234 @@
+\begin{thebibliography}{10}
+
+\bibitem{3}
+Explore decentralized applications (projects built on ethereum), 2018.
+
+\bibitem{27}
+Web3 javascript app api for 0.2x.x.
+\newblock \url{https://github.com/ethereum/wiki/wiki/JavaScript-API}, 2018.
+
+\bibitem{40}
+Mart{\'\i}n Abadi, Paul Barham, Jianmin Chen, Zhifeng Chen, Andy Davis, Jeffrey
+  Dean, Matthieu Devin, Sanjay Ghemawat, Geoffrey Irving, Michael Isard, et~al.
+\newblock Tensorflow: A system for large-scale machine learning.
+\newblock In {\em OSDI}, volume~16, pages 265--283, 2016.
+
+\bibitem{32}
+Kasun Bandara, Christoph Bergmeir, and Slawek Smyl.
+\newblock Forecasting across time series databases using long short-term memory
+  networks on groups of similar series.
+\newblock {\em arXiv preprint arXiv:1710.03222}, 2017.
+
+\bibitem{12}
+Annika Baumann, Benjamin Fabian, and Matthias Lischke.
+\newblock Exploring the bitcoin network.
+\newblock In {\em WEBIST (1)}, pages 369--374, 2014.
+
+\bibitem{29}
+Zehra {\c{C}}ataltepe, Sava{\c{s}} {\"O}zer, and Vahide~Unutmaz Bar{\i}n.
+\newblock Feature selection for price change prediction.
+
+\bibitem{41}
+Zehra {\c{C}}ataltepe, Sava{\c{s}} {\"O}zer, and Vahide~Unutmaz Bar{\i}n.
+\newblock Feature selection for price change prediction.
+
+\bibitem{36}
+Tianfeng Chai and Roland~R Draxler.
+\newblock Root mean square error (rmse) or mean absolute error
+  (mae)?--arguments against avoiding rmse in the literature.
+\newblock {\em Geoscientific model development}, 7(3):1247--1250, 2014.
+
+\bibitem{17}
+Stephen Chan, Jeffrey Chu, Saralees Nadarajah, and Joerg Osterrieder.
+\newblock A statistical analysis of cryptocurrencies.
+\newblock {\em Journal of Risk and Financial Management}, 10(2):12, 2017.
+
+\bibitem{26}
+Matthew Chen, Neha Narwal, and Mila Schultz.
+\newblock Predicting price changes in ethereum.
+
+\bibitem{16}
+Jonathan Chiu and Thorsten~V Koeppl.
+\newblock The economics of cryptocurrencies--bitcoin and beyond.
+\newblock 2017.
+
+\bibitem{34}
+Kyunghyun Cho, Bart Van~Merri{\"e}nboer, Caglar Gulcehre, Dzmitry Bahdanau,
+  Fethi Bougares, Holger Schwenk, and Yoshua Bengio.
+\newblock Learning phrase representations using rnn encoder-decoder for
+  statistical machine translation.
+\newblock {\em arXiv preprint arXiv:1406.1078}, 2014.
+
+\bibitem{44}
+Coindesk.
+\newblock Ethereum price.
+
+\bibitem{2}
+Coindesk.
+\newblock {\em State of Blockchain 2018}.
+\newblock 2017.
+
+\bibitem{1}
+Michael Crosby, Pradan Pattanayak, Sanjeev Verma, and Vignesh Kalyanaraman.
+\newblock Blockchain technology: Beyond bitcoin.
+\newblock {\em Applied Innovation}, 2:6--10, 2016.
+
+\bibitem{28}
+Chris Dannen.
+\newblock {\em Introducing Ethereum and Solidity}.
+\newblock Springer, 2017.
+
+\bibitem{5}
+Christos Faloutsos, Kevin~S Mccurley, and Andrew Tomkins.
+\newblock Connection subgraphs in social networks.
+\newblock In {\em SIAM International Conference on Data Mining, Workshop on
+  Link Analysis, Counterterrorism and Security}, 2004.
+
+\bibitem{11}
+Yaya~J Fanusie and Tom Robinson.
+\newblock {\em Bitcoin Laundering: An Analysis of Illicit Flows into Digital
+  Currency Services}.
+\newblock Jan 2018.
+
+\bibitem{10}
+Sean Foley, Jonathan Karlsen, and T{\=a}lis~J Putni{\c{n}}{\v{s}}.
+\newblock Sex, drugs, and bitcoin: How much illegal activity is financed
+  through cryptocurrencies?
+\newblock 2018.
+
+\bibitem{38}
+Felix~A Gers, Nicol~N Schraudolph, and J{\"u}rgen Schmidhuber.
+\newblock Learning precise timing with lstm recurrent networks.
+\newblock {\em Journal of machine learning research}, 3(Aug):115--143, 2002.
+
+\bibitem{31}
+Ian Goodfellow, Yoshua Bengio, and Aaron Courville.
+\newblock {\em Deep Learning}.
+\newblock MIT Press, 2016.
+
+\bibitem{22}
+Alex Greaves and Benjamin Au.
+\newblock Using the bitcoin transaction graph to predict the price of bitcoin.
+\newblock {\em No Data}, 2015.
+
+\bibitem{19}
+Tian Guo and Nino Antulov-Fantulin.
+\newblock Predicting short-term bitcoin price fluctuations from buy and sell
+  orders.
+\newblock {\em arXiv preprint arXiv:1802.04065}, 2018.
+
+\bibitem{30}
+Aric Hagberg, Dan Schult, Pieter Swart, D~Conway, L~S{\'e}guin-Charbonneau,
+  C~Ellison, B~Edwards, and J~Torrents.
+\newblock Networkx. high productivity software for complex networks.
+\newblock {\em Webov{\'a} str{\'a} nka https://networkx. lanl. gov/wiki}, 2013.
+
+\bibitem{24}
+KAREEM HEGAZY and SAMUEL MUMFORD.
+\newblock Comparitive automated bitcoin trading strategies.
+
+\bibitem{8}
+Ronald Heijmans, Richard Heuver, Clement Levallois, and Iman van Lelyveld.
+\newblock Dynamic visualization of large transaction networks: the daily dutch
+  overnight money market.
+\newblock 2014.
+
+\bibitem{42}
+Sepp Hochreiter and J{\"u}rgen Schmidhuber.
+\newblock Long short-term memory.
+\newblock {\em Neural computation}, 9(8):1735--1780, 1997.
+
+\bibitem{33}
+Rob~J Hyndman, Earo Wang, and Nikolay Laptev.
+\newblock Large-scale unusual time series detection.
+\newblock In {\em Data Mining Workshop (ICDMW), 2015 IEEE International
+  Conference on}, pages 1616--1619. IEEE, 2015.
+
+\bibitem{15}
+Aggelos Kiayias, Andrew Miller, and Dionysis Zindros.
+\newblock Non-interactive proofs of proof-of-work, 2017.
+
+\bibitem{20}
+Young~Bin Kim, Jun~Gi Kim, Wook Kim, Jae~Ho Im, Tae~Hyeong Kim, Shin~Jin Kang,
+  and Chang~Hun Kim.
+\newblock Predicting fluctuations in cryptocurrency transactions based on user
+  comments and replies.
+\newblock {\em PloS one}, 11(8):e0161197, 2016.
+
+\bibitem{39}
+Diederik~P Kingma and Jimmy Ba.
+\newblock Adam: A method for stochastic optimization.
+\newblock {\em arXiv preprint arXiv:1412.6980}, 2014.
+
+\bibitem{23}
+D{\'a}niel Kondor, Istv{\'a}n Csabai, J{\'a}nos Sz{\"u}le, M{\'a}rton
+  P{\'o}sfai, and G{\'a}bor Vattay.
+\newblock Inferring the interplay between network structure and market effects
+  in bitcoin.
+\newblock {\em New Journal of Physics}, 16(12):125003, 2014.
+
+\bibitem{13}
+D{\'a}niel Kondor, M{\'a}rton P{\'o}sfai, Istv{\'a}n Csabai, and G{\'a}bor
+  Vattay.
+\newblock Do the rich get richer? an empirical analysis of the bitcoin
+  transaction network.
+\newblock {\em PloS one}, 9(2):e86197, 2014.
+
+\bibitem{14}
+Xiaoqi Li, Peng Jiang, Ting Chen, Xiapu Luo, and Qiaoyan Wen.
+\newblock A survey on the security of blockchain systems.
+\newblock {\em Future Generation Computer Systems}, 2017.
+
+\bibitem{25}
+Isaac Madan, Shaurya Saluja, and Aojia Zhao.
+\newblock Automated bitcoin trading via machine learning algorithms.
+\newblock {\em URL: http://cs229. stanford. edu/proj2014/Isaac\% 20Madan}, 20,
+  2015.
+
+\bibitem{4}
+Ron Milo, Shai Shen-Orr, Shalev Itzkovitz, Nadav Kashtan, Dmitri Chklovskii,
+  and Uri Alon.
+\newblock Network motifs: simple building blocks of complex networks.
+\newblock {\em Science}, 298(5594):824--827, 2002.
+
+\bibitem{9}
+Satoshi Nakamoto.
+\newblock Bitcoin: A peer-to-peer electronic cash system.
+\newblock 2008.
+
+\bibitem{7}
+Krzysztof Nowicki and Tom A~B Snijders.
+\newblock Estimation and prediction for stochastic blockstructures.
+\newblock {\em Journal of the American statistical association},
+  96(455):1077--1087, 2001.
+
+\bibitem{18}
+Dorit Ron and Adi Shamir.
+\newblock Quantitative analysis of the full bitcoin transaction graph.
+\newblock In {\em International Conference on Financial Cryptography and Data
+  Security}, pages 6--24. Springer, 2013.
+
+\bibitem{37}
+Anthony Serapiglia and PA~Latrobe.
+\newblock Cryptocurrencies: Technology empowered integration of information
+  systems enabling currency without borders.
+\newblock In {\em Proceedings of the Information Systems Educators Conference
+  ISSN}, volume 2167, page 1435. Citeseer, 2014.
+
+\bibitem{21}
+Evita Stenqvist and Jacob L{\"o}nn{\"o}.
+\newblock Predicting bitcoin price fluctuation with twitter sentiment analysis,
+  2017.
+
+\bibitem{43}
+Zaiyong Tang, Chrys de~Almeida, and Paul~A Fishwick.
+\newblock Time series forecasting using neural networks vs. box-jenkins
+  methodology.
+\newblock {\em Simulation}, 57(5):303--310, 1991.
+
+\bibitem{6}
+Northwestern University.
+\newblock {\em The structure of transportation networks}.
+\newblock 1962.
+
+\end{thebibliography}

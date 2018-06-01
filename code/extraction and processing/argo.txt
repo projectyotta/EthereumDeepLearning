@@ -1,0 +1,28 @@
+# on your local machine run, it copies all of the files from dl-graph folder to ~/proj on the cluster
+proj/dl-graph/code/sync.sh
+
+
+ssh argo.orc.gmu.edu
+module load anaconda/p3/4.4.0
+cd dl-graph
+conda env create -f dlgpu.yml
+srun --pty --partition gpuq --gres=gpu:4 --ntasks-per-node 1 --nodes 1 --mem 15000 --job-name tensorflow bash
+source activate dlgpu	
+cd dl-graph
+cd code
+cd model
+python 3.py
+
+
+
+conda env -f dlgpu.yml
+
+
+
+module load anaconda/p3/4.4.0
+cd dl-graph
+srun --pty --partition gpuq --gres=gpu:4 --ntasks-per-node 1 --nodes 1 --mem 120000 --job-name tf-eth bash
+source activate dlgpu
+cd code
+cd model
+python 3_4.py
